@@ -1,0 +1,3 @@
+include ':gltrans'
+include ':app'
+rootProject.name = "android-gl-transition"
