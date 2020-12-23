@@ -46,11 +46,11 @@ public class TransitionalTextureShader extends TextureShader {
 
     // Don't forget to use the program
     public void draw(Texture tex1, Texture tex2) {
+        enable();
         while (!runOnPreDraw.isEmpty()) {
             Runnable runnable = runOnPreDraw.poll();
             runnable.run();
         }
-
         positionAttr.use(new GLContextTask() {
             @Override
             public void run() {
@@ -79,6 +79,7 @@ public class TransitionalTextureShader extends TextureShader {
                 afterDraw();
             }
         });
+        disable();
     }
 
     protected String getFragmentShaderSource() {

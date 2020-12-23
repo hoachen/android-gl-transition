@@ -16,7 +16,17 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
+//        maven {url "http://nexus.qutoutiao.net/repository/android/"}
+//        maven { url 'http://nexus.ushareit.me/repository/maven-snapshots/' }
     }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
 }
 
 task clean(type: Delete) {

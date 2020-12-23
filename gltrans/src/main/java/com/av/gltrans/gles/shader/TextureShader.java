@@ -113,6 +113,7 @@ public class TextureShader extends Shader {
     }
 
     public void draw(Texture texture) {
+        enable();
         positionAttr.use(new GLContextTask() {
             @Override
             public void run() {
@@ -135,6 +136,7 @@ public class TextureShader extends Shader {
                 afterDraw();
             }
         });
+        disable();
     }
 
     public String transformFragmentShader(String frag) {
@@ -181,7 +183,5 @@ public class TextureShader extends Shader {
     @Override
     protected String loadFragmentShaderSource() {
         return transformFragmentShader(getFragmentShaderSource());
-
-
     }
 }
